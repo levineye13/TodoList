@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Todo List</title>
+  </head>
+  <body>
+    <div class="page"></div>
+
+    <template id="todolist-template">
+      <section class="todolist">
+        <h1 class="todolist__title">Todo List</h1>
+      </section>
+    </template>
+
+    <template id="todolist-form-template">
+      <form action="#" class="todolist__form">
+        <input type="text" class="todolist__input" />
+        <button type="submit" class="todolist__submit">Сохранить</button>
+      </form>
+    </template>
+
+    <template id="todolist-item-template">
+      <article class="todolist__item">
+        <p class="todolist__text"></p>
+        <button class="todolist__copy button" type="button"></button>
+        <button class="todolist__del button" type="button"></button>
+      </article>
+    </template>
+
+    <script src="./scripts/TodoList.js" type="module"></script>
+    <script src="./scripts/TodoListForm.js" type="module"></script>
+    <script src="./scripts/TodoListItem.js" type="module"></script>
+    <script src="./scripts/index.js" type="module"></script>
+  </body>
+</html>

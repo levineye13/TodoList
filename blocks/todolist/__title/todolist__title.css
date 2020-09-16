@@ -1,0 +1,12 @@
+.todolist__title {
+  margin: 0 0 54px 0;
+  color: #fff;
+  font-size: 60px;
+  font-weight: 900;
+  text-align: center;
+  line-height: 1.2;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

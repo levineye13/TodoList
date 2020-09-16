@@ -1,0 +1,16 @@
+.todolist__submit {
+  margin: 0 0 0 10px;
+  font-size: 24px;
+  font-weight: 900;
+  font-style: normal;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 21px;
+  border: 0;
+  cursor: pointer;
+  color: #000;
+  background-color: #fff;
+}
