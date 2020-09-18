@@ -1,0 +1,9 @@
+.todolist__submit_inactive {
+  background-color: rgb(143, 134, 134);
+  color: rgb(53, 48, 48);
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

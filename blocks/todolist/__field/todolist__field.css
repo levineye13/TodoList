@@ -1,0 +1,4 @@
+.todolist__field {
+	flex-grow: 1;
+	position: relative;
+}

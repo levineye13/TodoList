@@ -1,7 +1,7 @@
 .todolist__item {
   display: flex;
   padding: 40px;
-  border: 1px solid #fff;
+  border: 1px solid #6f6f6f;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

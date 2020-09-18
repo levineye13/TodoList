@@ -1,0 +1,11 @@
+.todolist__error {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transform: translateY(calc(100% + 5px));
+	-webkit-transform: translateY(calc(100% + 5px));
+	-moz-transform: translateY(calc(100% + 5px));
+	-ms-transform: translateY(calc(100% + 5px));
+	-o-transform: translateY(calc(100% + 5px));
+	color: #f00;
+}

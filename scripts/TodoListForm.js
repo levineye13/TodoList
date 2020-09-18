@@ -8,7 +8,6 @@ class TodoListForm {
   }
 
   _handleSubmit = (evt) => {
-    evt.preventDefault();
     const text = this._form.querySelector(".todolist__input").value;
     this._addItem(text);
   };

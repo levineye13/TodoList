@@ -1,5 +1,5 @@
 .todolist__input {
-  flex-grow: 1;
+	width: calc(100% - 42px);
   border: 0;
   background-color: #fff;
   font-family: inherit;
