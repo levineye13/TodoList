@@ -17,10 +17,16 @@
 
     <template id="todolist-form-template">
       <form action="#" class="todolist__form" name="todoForm" novalidate>
-				<label class="todolist__field">
-					<input type="text" class="todolist__input" required maxlength="30">
-					<span class="todolist__error"></span>
-				</label>
+        <label class="todolist__field">
+          <input
+            type="text"
+            class="todolist__input"
+            name="todo_input"
+            required
+            maxlength="30"
+          />
+          <span class="todolist__error"></span>
+        </label>
         <button type="submit" class="todolist__submit">Сохранить</button>
       </form>
     </template>

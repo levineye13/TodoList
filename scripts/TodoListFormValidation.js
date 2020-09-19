@@ -4,20 +4,18 @@ class TodoListFormValidation {
   }
 
   _showInputError = (invalidInput) => {
-    const submitButton = this._formElement.querySelector(".todolist__submit");
-
     this._formElement.querySelector(".todolist__error").textContent =
       invalidInput.currentInput.validationMessage;
-    submitButton.setAttribute("disabled", "");
-    submitButton.classList.add("todolist__submit_inactive");
+    this._formElement.elements.todo_input.classList.add(
+      "todolist__input_error"
+    );
   };
 
   _hideInputError = () => {
-    const submitButton = this._formElement.querySelector(".todolist__submit");
-
-    submitButton.removeAttribute("disabled");
-    submitButton.classList.remove("todolist__submit_inactive");
     this._formElement.querySelector(".todolist__error").textContent = "";
+    this._formElement.elements.todo_input.classList.remove(
+      "todolist__input_error"
+    );
   };
 
   _hasInvalidInput = (inputList) => {
@@ -46,6 +44,19 @@ class TodoListFormValidation {
     }
   };
 
+  _toggleButtonState = (inputList) => {
+    const submitButton = this._formElement.querySelector(".todolist__submit");
+    const invalidInput = this._hasInvalidInput(inputList);
+
+    if (!invalidInput.stateValidInput) {
+      submitButton.setAttribute("disabled", "");
+      submitButton.classList.add("todolist__submit_inactive");
+    } else {
+      submitButton.removeAttribute("disabled");
+      submitButton.classList.remove("todolist__submit_inactive");
+    }
+  };
+
   _handleSubmitForm = (evt) => {
     evt.preventDefault();
   };
@@ -54,11 +65,13 @@ class TodoListFormValidation {
     const inputList = Array.from(
       this._formElement.querySelectorAll(".todolist__input")
     );
-    this._handleInvalidInput(inputList);
+
+    this._toggleButtonState(inputList);
     this._formElement.addEventListener("submit", this._handleSubmitForm);
-    this._formElement.addEventListener("input", (evt) =>
-      this._handleInvalidInput(inputList)
-    );
+    this._formElement.addEventListener("input", (evt) => {
+      this._handleInvalidInput(inputList);
+      this._toggleButtonState(inputList);
+    });
   };
 
   enableValidation = () => {

@@ -4,7 +4,7 @@ import { TodoListFormValidation } from "./TodoListFormValidation.js";
 import { TodoListItem } from "./TodoListItem.js";
 
 const todoListArray = [
-  "Погулять с Рэем",
+  "Погулять с собакой",
   "Помыть посуду",
   "Заняться программированием",
   "Поиграть на гитаре",
