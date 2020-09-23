@@ -1,6 +1,6 @@
 class TodoListForm {
   static _templateTodoListForm = document.querySelector(
-    "#todolist-form-template"
+    '#todolist-form-template'
   ).content;
 
   constructor(addItem) {
@@ -8,12 +8,13 @@ class TodoListForm {
   }
 
   _handleSubmit = (evt) => {
-    const text = this._form.querySelector(".todolist__input").value;
+    const text = this._form.querySelector('.todolist__input').value;
+    this._form.reset();
     this._addItem(text);
   };
 
   _setEventListeners = () => {
-    this._form.addEventListener("submit", this._handleSubmit);
+    this._form.addEventListener('submit', this._handleSubmit);
   };
 
   render = (container) => {

@@ -1,6 +1,6 @@
 class TodoListItem {
   static _templateTodoListItem = document.querySelector(
-    "#todolist-item-template"
+    '#todolist-item-template'
   ).content;
 
   constructor(text, addItem) {
@@ -18,16 +18,16 @@ class TodoListItem {
 
   _setEventListeners = () => {
     this._item
-      .querySelector(".todolist__copy")
-      .addEventListener("click", this._handleCopyButton);
+      .querySelector('.todolist__copy')
+      .addEventListener('click', this._handleCopyButton);
     this._item
-      .querySelector(".todolist__del")
-      .addEventListener("click", this._handleDeleteButton);
+      .querySelector('.todolist__del')
+      .addEventListener('click', this._handleDeleteButton);
   };
 
   render = (container) => {
     this._item = TodoListItem._templateTodoListItem.cloneNode(true).children[0];
-    this._item.querySelector(".todolist__text").textContent = this._text;
+    this._item.querySelector('.todolist__text').textContent = this._text;
     this._setEventListeners();
 
     container.append(this._item);

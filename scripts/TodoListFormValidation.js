@@ -4,17 +4,17 @@ class TodoListFormValidation {
   }
 
   _showInputError = (invalidInput) => {
-    this._formElement.querySelector(".todolist__error").textContent =
+    this._formElement.querySelector('.todolist__error').textContent =
       invalidInput.currentInput.validationMessage;
     this._formElement.elements.todo_input.classList.add(
-      "todolist__input_error"
+      'todolist__input_error'
     );
   };
 
   _hideInputError = () => {
-    this._formElement.querySelector(".todolist__error").textContent = "";
+    this._formElement.querySelector('.todolist__error').textContent = '';
     this._formElement.elements.todo_input.classList.remove(
-      "todolist__input_error"
+      'todolist__input_error'
     );
   };
 
@@ -45,30 +45,33 @@ class TodoListFormValidation {
   };
 
   _toggleButtonState = (inputList) => {
-    const submitButton = this._formElement.querySelector(".todolist__submit");
+    const submitButton = this._formElement.querySelector('.todolist__submit');
     const invalidInput = this._hasInvalidInput(inputList);
 
     if (!invalidInput.stateValidInput) {
-      submitButton.setAttribute("disabled", "");
-      submitButton.classList.add("todolist__submit_inactive");
+      submitButton.setAttribute('disabled', '');
+      submitButton.classList.add('todolist__submit_inactive');
     } else {
-      submitButton.removeAttribute("disabled");
-      submitButton.classList.remove("todolist__submit_inactive");
+      submitButton.removeAttribute('disabled');
+      submitButton.classList.remove('todolist__submit_inactive');
     }
   };
 
-  _handleSubmitForm = (evt) => {
+  _handleSubmitForm = (evt, inputList) => {
     evt.preventDefault();
+    this._toggleButtonState(inputList);
   };
 
   _setEventListeners = () => {
     const inputList = Array.from(
-      this._formElement.querySelectorAll(".todolist__input")
+      this._formElement.querySelectorAll('.todolist__input')
     );
 
     this._toggleButtonState(inputList);
-    this._formElement.addEventListener("submit", this._handleSubmitForm);
-    this._formElement.addEventListener("input", (evt) => {
+    this._formElement.addEventListener('submit', (evt) =>
+      this._handleSubmitForm(evt, inputList)
+    );
+    this._formElement.addEventListener('input', (evt) => {
       this._handleInvalidInput(inputList);
       this._toggleButtonState(inputList);
     });
