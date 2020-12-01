@@ -1,4 +1,4 @@
-.todolist__input_error {
+.todolist__input_error:focus {
   -webkit-box-shadow: 0 0 10px 4px #f00;
   box-shadow: 0 0 10px 4px #f00;
 }
