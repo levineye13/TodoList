@@ -1,4 +1,4 @@
-class TodoListFormValidation {
+export default class TodoListFormValidation {
   constructor(formElement) {
     this._formElement = formElement;
   }
@@ -11,14 +11,14 @@ class TodoListFormValidation {
     );
   };
 
-  _hideInputError = () => {
+  _hideInputError() {
     this._formElement.querySelector('.todolist__error').textContent = '';
     this._formElement.elements.todo_input.classList.remove(
       'todolist__input_error'
     );
-  };
+  }
 
-  _hasInvalidInput = (inputList) => {
+  _hasInvalidInput(inputList) {
     return inputList.reduce((prevInput, currentInput) => {
       if (!currentInput.validity.valid) {
         return {
@@ -32,9 +32,9 @@ class TodoListFormValidation {
         };
       }
     }, {});
-  };
+  }
 
-  _handleInvalidInput = (inputList) => {
+  _handleInvalidInput(inputList) {
     const invalidInput = this._hasInvalidInput(inputList);
 
     if (!invalidInput.stateValidInput) {
@@ -42,9 +42,9 @@ class TodoListFormValidation {
     } else {
       this._hideInputError();
     }
-  };
+  }
 
-  _toggleButtonState = (inputList) => {
+  _toggleButtonState(inputList) {
     const submitButton = this._formElement.querySelector('.todolist__submit');
     const invalidInput = this._hasInvalidInput(inputList);
 
@@ -55,14 +55,14 @@ class TodoListFormValidation {
       submitButton.removeAttribute('disabled');
       submitButton.classList.remove('todolist__submit_inactive');
     }
-  };
+  }
 
-  _handleSubmitForm = (evt, inputList) => {
+  _handleSubmitForm(evt, inputList) {
     evt.preventDefault();
     this._toggleButtonState(inputList);
-  };
+  }
 
-  _setEventListeners = () => {
+  _setEventListeners() {
     const inputList = Array.from(
       this._formElement.querySelectorAll('.todolist__input')
     );
@@ -75,11 +75,9 @@ class TodoListFormValidation {
       this._handleInvalidInput(inputList);
       this._toggleButtonState(inputList);
     });
-  };
+  }
 
-  enableValidation = () => {
+  enableValidation() {
     this._setEventListeners();
-  };
+  }
 }
-
-export { TodoListFormValidation };
