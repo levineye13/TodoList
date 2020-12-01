@@ -3,13 +3,32 @@ export default class TodoListItem {
     '#todolist-item-template'
   ).content;
 
-  constructor() {}
+  constructor({ text, handleCopy }) {
+    this._text = text;
+    this._handleCopy = handleCopy;
+  }
 
-  _setEventListeners() {}
+  _handleCopyClick() {
+    this._handleCopy();
+  }
 
-  getView(text) {
+  _handleDeleteClick({ target }) {
+    this._todos = target.closest('.todolist__item');
+    this._todos.remove();
+  }
+
+  _setEventListeners() {
+    this._view
+      .querySelector('.todolist__copy')
+      .addEventListener('click', this._handleCopyClick.bind(this));
+    this._view
+      .querySelector('.todolist__del')
+      .addEventListener('click', this._handleDeleteClick);
+  }
+
+  getView() {
     this._view = TodoListItem._templateTodoListItem.cloneNode(true).children[0];
-    this._view.querySelector('.todolist__text').textContent = text;
+    this._view.querySelector('.todolist__text').textContent = this._text;
 
     this._setEventListeners();
 
