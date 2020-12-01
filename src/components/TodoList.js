@@ -1,4 +1,4 @@
-class TodoList {
+export default class TodoList {
   static _templateTodoList = document.querySelector('#todolist-template')
     .content;
 
@@ -14,11 +14,11 @@ class TodoList {
     this._createTodoListItem = createTodoListItem;
   }
 
-  _addTodoItem = (text) => {
+  _addTodoItem(text) {
     this._createTodoListItem(text, this._addTodoItem).render(this._view);
-  };
+  }
 
-  render = (container) => {
+  render(container) {
     this._view = TodoList._templateTodoList.cloneNode(true).children[0];
     this._createTodoListForm(this._addTodoItem).render(this._view);
     this._createFormValidator(
@@ -28,7 +28,5 @@ class TodoList {
       this._addTodoItem(todoListItem)
     );
     container.append(this._view);
-  };
+  }
 }
-
-export { TodoList };
