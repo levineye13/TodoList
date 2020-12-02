@@ -14,3 +14,24 @@
   color: #000;
   background-color: #fff;
 }
+
+@media screen and (max-width: 800px) {
+  .todolist__submit {
+    font-size: 20px;
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todolist__submit {
+    font-size: 16px;
+    padding: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .todolist__submit {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

@@ -12,3 +12,15 @@
 .todolist__item:not(:last-child) {
   margin-bottom: 10px;
 }
+
+@media screen and (max-width: 800px) {
+  .todolist__item {
+    padding: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todolist__item {
+    padding: 20px;
+  }
+}

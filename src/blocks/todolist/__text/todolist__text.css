@@ -1,6 +1,7 @@
 .todolist__text {
   font-size: 24px;
   font-weight: 900;
+  line-height: 24px;
   font-style: normal;
   color: #fff;
   margin: 0;
@@ -8,4 +9,22 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+
+@media screen and (max-width: 800px) {
+  .todolist__text {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todolist__text {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .todolist__text {
+    font-size: 12px;
+  }
 }

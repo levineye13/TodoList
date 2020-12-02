@@ -10,3 +10,16 @@
   -ms-user-select: none;
   user-select: none;
 }
+
+@media screen and (max-width: 800px) {
+  .todolist__title {
+    font-size: 45px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todolist__title {
+    font-size: 30px;
+  }
+}
