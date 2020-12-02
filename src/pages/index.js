@@ -1,3 +1,4 @@
+import { createStore } from 'redux';
 import Displayer from './../components/Displayer.js';
 import TodoList from '../components/TodoList.js';
 import TodoListForm from '../components/TodoListForm.js';
@@ -5,17 +6,23 @@ import TodoCounter from '../components/TodoCounter.js';
 import TodoListFormValidation from '../components/TodoListFormValidation.js';
 import TodoListItem from '../components/TodoListItem.js';
 import { todoListArray } from './../utils/constants.js';
+import { counterReducer } from '../redux/reducers/counterReducer.js';
+import { increment, decrement } from '../redux/actions/counter.js';
 import './index.css';
+
+const store = createStore(counterReducer);
 
 const createTodoItemView = ({ text, container }) => {
   const todoItem = new TodoListItem({
     text,
     handleCopy: () => {
-      todoCounter.addTodos();
+      store.dispatch(increment());
+      todoCounter.addTodos(store.getState());
       displayer.renderItem(todoItem.getView(), container);
     },
     handleDelete: () => {
-      todoCounter.removeTodos();
+      store.dispatch(decrement());
+      todoCounter.removeTodos(store.getState());
     },
   });
   return todoItem.getView();
@@ -40,14 +47,15 @@ const todoForm = new TodoListForm({
       text: value,
       container: todoListView,
     });
-    todoCounter.addTodos();
+    store.dispatch(increment());
+    todoCounter.addTodos(store.getState());
     displayer.renderItem(todoItemView, todoListView);
   },
 });
 const todoFormView = todoForm.getView();
 displayer.renderItem(todoFormView, todoListView);
 
-const todoCounter = new TodoCounter({ todosList: todoListArray });
+const todoCounter = new TodoCounter({ initialState: store.getState() });
 displayer.renderItem(todoCounter.getView(), todoListView);
 
 displayer.renderItemList(todoListArray, todoListView);

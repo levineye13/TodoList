@@ -3,22 +3,16 @@ export default class TodoCounter {
     '#todolist-counter-template'
   ).content;
 
-  constructor({ todosList }) {
-    this._numberTodos = todosList.length;
+  constructor({ initialState }) {
+    this._numberTodos = initialState;
   }
 
-  addTodos() {
-    this._numberTodos++;
-    this._view.querySelector(
-      '.todolist__number'
-    ).textContent = this._numberTodos;
+  addTodos(state) {
+    this._view.querySelector('.todolist__number').textContent = state;
   }
 
-  removeTodos() {
-    this._numberTodos--;
-    this._view.querySelector(
-      '.todolist__number'
-    ).textContent = this._numberTodos;
+  removeTodos(state) {
+    this._view.querySelector('.todolist__number').textContent = state;
   }
 
   getView() {
