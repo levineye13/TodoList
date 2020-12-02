@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "Список дел",
   "private": "true",
-  "main": "index.js",
   "homepage": "https://github.com/levineye13/TodoList#readme",
   "scripts": {
     "build": "webpack --mode production",
