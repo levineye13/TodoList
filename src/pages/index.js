@@ -1,6 +1,7 @@
 import Displayer from './../components/Displayer.js';
 import TodoList from '../components/TodoList.js';
 import TodoListForm from '../components/TodoListForm.js';
+import TodoCounter from '../components/TodoCounter.js';
 import TodoListFormValidation from '../components/TodoListFormValidation.js';
 import TodoListItem from '../components/TodoListItem.js';
 import { todoListArray } from './../utils/constants.js';
@@ -10,7 +11,11 @@ const createTodoItemView = ({ text, container }) => {
   const todoItem = new TodoListItem({
     text,
     handleCopy: () => {
+      todoCounter.addTodos();
       displayer.renderItem(todoItem.getView(), container);
+    },
+    handleDelete: () => {
+      todoCounter.removeTodos();
     },
   });
   return todoItem.getView();
@@ -35,15 +40,17 @@ const todoForm = new TodoListForm({
       text: value,
       container: todoListView,
     });
-    console.log(todoItemView);
+    todoCounter.addTodos();
     displayer.renderItem(todoItemView, todoListView);
   },
 });
 const todoFormView = todoForm.getView();
 displayer.renderItem(todoFormView, todoListView);
 
+const todoCounter = new TodoCounter({ todosList: todoListArray });
+displayer.renderItem(todoCounter.getView(), todoListView);
+
 displayer.renderItemList(todoListArray, todoListView);
 
-const formValidator = new TodoListFormValidation(
-  todoFormView
-).enableValidation();
+const formValidator = new TodoListFormValidation(todoFormView);
+formValidator.enableValidation();

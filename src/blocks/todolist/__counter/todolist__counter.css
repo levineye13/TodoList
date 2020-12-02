@@ -1,0 +1,10 @@
+.todolist__counter {
+  display: block;
+  width: 100%;
+  color: #fff;
+  margin: 0 0 20px;
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.2;
+  user-select: none;
+}

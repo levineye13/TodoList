@@ -3,9 +3,10 @@ export default class TodoListItem {
     '#todolist-item-template'
   ).content;
 
-  constructor({ text, handleCopy }) {
+  constructor({ text, handleCopy, handleDelete }) {
     this._text = text;
     this._handleCopy = handleCopy;
+    this._handleDelete = handleDelete;
   }
 
   _handleCopyClick() {
@@ -15,6 +16,7 @@ export default class TodoListItem {
   _handleDeleteClick({ target }) {
     this._todos = target.closest('.todolist__item');
     this._todos.remove();
+    this._handleDelete();
   }
 
   _setEventListeners() {
@@ -23,7 +25,7 @@ export default class TodoListItem {
       .addEventListener('click', this._handleCopyClick.bind(this));
     this._view
       .querySelector('.todolist__del')
-      .addEventListener('click', this._handleDeleteClick);
+      .addEventListener('click', this._handleDeleteClick.bind(this));
   }
 
   getView() {
