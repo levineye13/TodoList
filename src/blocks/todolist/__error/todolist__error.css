@@ -1,5 +1,8 @@
 .todolist__error {
   visibility: hidden;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -13,4 +16,10 @@
 
 .todolist__input_error:focus + .todolist__error {
   visibility: visible;
+}
+
+@media screen and (max-width: 480px) {
+  .todolist__error {
+    font-size: 12px;
+  }
 }

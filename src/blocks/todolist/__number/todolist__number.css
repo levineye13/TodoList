@@ -3,3 +3,21 @@
   font-weight: 900;
   margin-left: 15px;
 }
+
+@media screen and (max-width: 800px) {
+  .todolist__number {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .todolist__number {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .todolist__number {
+    font-size: 20px;
+  }
+}
